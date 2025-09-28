@@ -28,6 +28,7 @@ public class ExampleRunner
 		{ "Semantic Kernel: HomeAutomation", SemanticKernelHomeAutomation.Run },
         { "Semantic Kernel: Prompt", SemanticKernelPrompt.Run },
         { "Semantic Kernel: Chat", SemanticKernelChat.Run },
+        { "Semantic Kernel: ChatEx", SemanticKernelChatEx.Run },
         { "Semantic Kernel: Store", SemanticKernelMemory.Run },
         { "Batched Executor: Simple", BatchedExecutorSimple.Run },
         { "Batched Executor: Save/Load", BatchedExecutorSaveAndLoad.Run },

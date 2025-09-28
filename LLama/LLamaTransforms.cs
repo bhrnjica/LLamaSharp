@@ -1,5 +1,6 @@
 using LLama.Abstractions;
 using LLama.Common;
+using Microsoft.Extensions.AI;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -83,6 +84,32 @@ namespace LLama
                     else if (message.AuthorRole == AuthorRole.Assistant)
                     {
                         sb.AppendLine($"{_assistantName}: {message.Content}");
+                    }
+                }
+                return sb.ToString();
+            }
+
+            /// <inheritdoc />
+            public virtual string HistoryToText(IEnumerable<ChatMessage> messages)
+            {
+                StringBuilder sb = new();
+                foreach (var message in messages)
+                {
+                    if (message.Role == ChatRole.User)
+                    {
+                        sb.AppendLine($"{_userName}: {message.Text}");
+                    }
+                    else if (message.Role == ChatRole.System)
+                    {
+                        sb.AppendLine($"{_systemName}: {message.Text}");
+                    }
+                    else if (message.Role == ChatRole.Tool)
+                    {
+                        sb.AppendLine($"{_unknownName}: {message.Text}");
+                    }
+                    else if (message.Role == ChatRole.Assistant)
+                    {
+                        sb.AppendLine($"{_assistantName}: {message.Text}");
                     }
                 }
                 return sb.ToString();

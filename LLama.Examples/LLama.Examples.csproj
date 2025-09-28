@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\LLama\LLamaSharp.Runtime.targets" />
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
     <Platforms>AnyCPU;x64</Platforms>
     <!-- Set IncludeBuiltInRuntimes to false to include your own runtime libraries and not link the defaults -->
-    <IncludeBuiltInRuntimes>true</IncludeBuiltInRuntimes>
+    <IncludeBuiltInRuntimes>false</IncludeBuiltInRuntimes>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	  <LangVersion>12</LangVersion>
 	<NoWarn>1701;1702;8604;SKEXP0001;SKEXP0050;SKEXP0052;SKEXP0003</NoWarn>
@@ -80,6 +80,28 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\chat-with-kunkun-chinese.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="runtimes\win-x64\native\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\llama.cpp\build\bin\ggml-base.dll" Link="runtimes\win-x64\native\ggml-base.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\llama.cpp\build\bin\ggml-cpu.dll" Link="runtimes\win-x64\native\ggml-cpu.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\llama.cpp\build\bin\ggml-cuda.dll" Link="runtimes\win-x64\native\ggml-cuda.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\llama.cpp\build\bin\ggml.dll" Link="runtimes\win-x64\native\ggml.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\llama.cpp\build\bin\llama.dll" Link="runtimes\win-x64\native\llama.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
